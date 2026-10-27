@@ -1,0 +1,515 @@
+{
+  "name": "lict6",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.message.text }}",
+        "options": {
+          "systemMessage": "# Role\nYou are the primary router for Dobi Kitchen. Your job is to greet the customer in Ma'ani dialect and use the appropriate tool to hand over the conversation to the specialized agent.\n\n# Instructions\n1. Greet the customer: \"يا هلا وحيا الله بيك في مطبخ دوبي، تفضل يا غالي، كيف بقدر أخدمك اليوم؟ بدك تطلب ولا بدك تلغي طلب سابق؟\"\n2. Based on the user's response, you MUST call the correct tool:\n    - If they want to order: Call the tool `order`.\n    - If they want to cancel: Call the tool `cancullection`.\n    - If they want to track their delivery or talk to the driver: Call the tool `Driver`.\n\n# Constraints\n- Do not provide any menu information yourself.\n- Do not process cancellations yourself.\n- You must use a tool to respond if the user makes a choice.\n\n# Tools Available\n- **order**: Specialist for menu and taking orders.\n- **cancullection**: Specialist for canceling orders within 10 minutes.\n- **Driver**: Specialist for delivery tracking and locations in Ma'an."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -448,
+        -32
+      ],
+      "id": "f0aff27b-ebad-45e3-900b-2cf483b27db7",
+      "name": "coustomr surfes"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "14hGeIbBvHr9TqRb17d2HA3tkBQMNOaEnfsOjVXB1V3I",
+          "mode": "list",
+          "cachedResultName": "معلومات",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "الورقة1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "اسم العميل",
+              "displayName": "اسم العميل",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "رقم التلفون",
+              "displayName": "رقم التلفون",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "الطلب ",
+              "displayName": "الطلب ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "رقم الطلب ",
+              "displayName": "رقم الطلب ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        -148,
+        400
+      ],
+      "id": "dfe92d6b-1630-4b7f-8b61-d10969f51827",
+      "name": "Append or update row in sheet in Google Sheets1"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "14hGeIbBvHr9TqRb17d2HA3tkBQMNOaEnfsOjVXB1V3I",
+          "mode": "list",
+          "cachedResultName": "معلومات",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "الورقة1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "اسم العميل",
+              "displayName": "اسم العميل",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "رقم التلفون",
+              "displayName": "رقم التلفون",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "الطلب ",
+              "displayName": "الطلب ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "رقم الطلب ",
+              "displayName": "رقم الطلب ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        116,
+        400
+      ],
+      "id": "70e9641a-d829-4733-94a8-a3690c8ff0b4",
+      "name": "Append or update row in sheet in Google Sheets"
+    },
+    {
+      "parameters": {
+        "sendTo": "your-email@example.com",
+        "subject": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Subject', ``, 'string') }}",
+        "message": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Message', ``, 'string') }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmailTool",
+      "typeVersion": 2.2,
+      "position": [
+        -20,
+        400
+      ],
+      "id": "c9bea4f3-8caa-45b0-b917-94583ad1ad2c",
+      "name": "Send a message in Gmail2"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [
+        244,
+        400
+      ],
+      "id": "64cd7cef-3732-4cae-accd-9855b36a491f",
+      "name": "Calculator"
+    },
+    {
+      "parameters": {
+        "sendTo": "your-email@example.com",
+        "subject": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Subject', ``, 'string') }}",
+        "message": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Message', ``, 'string') }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmailTool",
+      "typeVersion": 2.2,
+      "position": [
+        372,
+        400
+      ],
+      "id": "7134439a-df0f-4cd2-8e43-39191d15e6a4",
+      "name": "Send a message in Gmail"
+    },
+    {
+      "parameters": {
+        "text": "={{ $json.message.text }}",
+        "options": {
+          "systemMessage": "# Role\nYou are the \"Cancellation Agent\". Your job is to process order cancellations based on specific time constraints.\n\n# Rules\n1.  Ask for the Order ID provided during the purchase.\n2.  **Time Check**: Check the order timestamp from the sheet or current context. If more than 10 minutes have passed since the order was placed, politely refuse the cancellation in Ma'ani dialect.\n3.  **Process Cancellation**:\n    * Update the **Google_Sheets** row status to \"Cancelled\".\n    * Send a **Gmail** to the kitchen titled \"Order Cancelled\" including the Order ID and details.\n4.  Confirm to the customer that the order has been cancelled.\n\n# Tools\n## Google_Sheets\nUpdate the status of the specific Order ID.\n\n## Gmail\nNotify the kitchen about the cancellation."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agentTool",
+      "typeVersion": 3,
+      "position": [
+        -380,
+        192
+      ],
+      "id": "13dd7fc9-90cd-4f9b-b611-7656af877fd6",
+      "name": "cancullection"
+    },
+    {
+      "parameters": {
+        "text": "={{ $json.message.text }}",
+        "options": {
+          "systemMessage": "=# Role\nYou are the \"Order Agent\" for Dobi Kitchen. Your goal is to take food orders, calculate totals, collect customer data, and record the transaction.\n\n# Behavior\n* Speak in the Ma'ani dialect.\n* Be polite and efficient.\n\n# Workflow Instructions\n1.  **Present Menu**: Show the customer the menu and prices clearly.\n    * Seder (Mansaf/Kabsa/Maqluba): Chicken 7 JOD, Meat 9 JOD.\n    * Meal (Mansaf/Kabsa/Maqluba): Chicken 3.5 JOD, Meat 5.5 JOD.\n2.  **Suggest Add-ons**: Before confirming, suggest:\n    * Salad: 0.50 JOD\n    * Yogurt: 0.15 JOD\n    * Bread Piece: 0.25 JOD\n    * Matrix (Drink): 0.50 JOD\n    * Appetizers: 1.00 JOD\n3.  **Calculate Total**: Use the **Calculator** tool to sum the prices.\n4.  **Collect Details**:\n    * Name and Phone Number.\n    * Payment Method.\n    * Order Type: Pickup or Delivery. \n    * If Delivery: Ask for the location and the nearest landmark. Inform them delivery within Ma'an is 1 JOD (No delivery outside Ma'an).\n5.  **Record & Notify**:\n    * Save details to **Google_Sheets** with a status of \"Pending\".\n    * Generate a unique Order ID based on the current timestamp.\n    * Send an email via **Gmail** to the kitchen.\n6.  **Email Format (HTML)**:\n    * The email must contain order details in an HTML table.\n    * Include a button: `<a href=\"https://fy0499.app.n8n.cloud/webhook/b1ca0e8d-6d68-406f-b0a4-bbcfebbfcf44\" style=\"background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;\">✅ Done/Finish Order</a>`\n7.  **Post-Order**: \n    * Provide the Order ID to the customer.\n    * Explain the stages: \"Kitchen is working on your order\" -> \"Out for delivery with the driver\".\n    * If delivery is chosen, hand off to the **driver** agent after the kitchen confirms.\n\n# Tools\n## Google_Sheets\nUse to append a new row with: Order ID, Name, Phone, Items, Total Price, Delivery/Pickup, Location, and Status (Pending).\n\n## Gmail\nSend the HTML invoice to the kitchen email.\n\n## Calculator\nUse for all mathematical operations to ensure accuracy."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agentTool",
+      "typeVersion": 3,
+      "position": [
+        20,
+        192
+      ],
+      "id": "1fd89fce-d7f4-4b17-88b8-626847c31e94",
+      "name": "order"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.message.chat.id }}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -320,
+        400
+      ],
+      "id": "a306ae4b-dcdb-4668-b16a-ecbee66dc893",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemma-4-31b-it",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        -448,
+        400
+      ],
+      "id": "c18753b3-a2c1-42a5-b721-cf4a1951cac4",
+      "name": "Google Gemini Chat Model"
+    },
+    {
+      "parameters": {
+        "operation": "sendAndWait",
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "message": "={{ $json.output }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        684,
+        -32
+      ],
+      "id": "5cac1058-a252-47e5-ade8-feaaa712e444",
+      "name": "Send message and wait for response"
+    },
+    {
+      "parameters": {
+        "path": "b1ca0e8d-6d68-406f-b0a4-bbcfebbfcf44",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -672,
+        400
+      ],
+      "id": "5f898fae-823b-4d9a-8d1f-bc588042a7ff",
+      "name": "Webhook"
+    },
+    {
+      "parameters": {
+        "text": "={{ $json.message.text }}",
+        "options": {
+          "systemMessage": "# Role\nYou are the \"Driver Agent\". You handle delivery logistics.\n\n# Instructions\n1.  Confirm the customer's location and nearest landmark.\n2.  Inform the customer: \"Your order is now with the delivery driver and is on its way.\"\n3.  Remind them that delivery is 1 JOD within Ma'an only."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agentTool",
+      "typeVersion": 3,
+      "position": [
+        316,
+        192
+      ],
+      "id": "7305b925-ed0d-4977-b40d-a91bffeae610",
+      "name": "Driver"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -672,
+        -32
+      ],
+      "id": "a3372af5-ba98-4878-8423-29d3efda7139",
+      "name": "Telegram Trigger"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Append or update row in sheet in Google Sheets1": {
+      "ai_tool": [
+        [
+          {
+            "node": "cancullection",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append or update row in sheet in Google Sheets": {
+      "ai_tool": [
+        [
+          {
+            "node": "order",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message in Gmail2": {
+      "ai_tool": [
+        [
+          {
+            "node": "cancullection",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator": {
+      "ai_tool": [
+        [
+          {
+            "node": "order",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message in Gmail": {
+      "ai_tool": [
+        [
+          {
+            "node": "order",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cancullection": {
+      "ai_tool": [
+        [
+          {
+            "node": "coustomr surfes",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "order": {
+      "ai_tool": [
+        [
+          {
+            "node": "coustomr surfes",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "cancullection",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "order",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "coustomr surfes",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "coustomr surfes",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "cancullection",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "order",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Driver",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "coustomr surfes": {
+      "main": [
+        [
+          {
+            "node": "Send message and wait for response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Driver": {
+      "ai_tool": [
+        [
+          {
+            "node": "coustomr surfes",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "coustomr surfes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "meta": {},
+  "tags": []
+}
