@@ -4,7 +4,8 @@ An **AI-powered multi-agent workflow concept built with n8n** for handling commo
 
 > **Project status:** Portfolio prototype. The exported workflow has not been independently verified end to end. Review and test every node and integration in your own n8n instance before using it with real customers or orders.
 
-![Workflow overview](./assets/workflow-overview.svg)
+<img width="579" height="237" alt="Screenshot 2026-10-27 182129" src="https://github.com/user-attachments/assets/4b7d1bdb-9965-48cd-b76e-4543a3fdc642" />
+
 
 ## Problem
 
