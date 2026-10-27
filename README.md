@@ -13,3 +13,5 @@ Never commit credentials, webhook URLs, customer records, or private IDs. End-to
 
 ## Project status
 This README documents the project scope and setup expectations. Add the sanitized workflow export before attempting import, then validate it in your own n8n instance.
+
+<img width="579" height="237" alt="image" src="https://github.com/user-attachments/assets/fd5fdddb-ca58-45c6-8375-08cc17227f3a" />
