@@ -1,5 +1,7 @@
 # Dobi Kitchen Multi-Agent Assistant
 
+I built and tested this workflow from start to finish.
+
 An n8n multi-agent assistant for a food business. Customers send their requests through Telegram, and the main agent directs each request to the right flow for orders, cancellations, or delivery questions.
 
 <img width="579" height="237" alt="Dobi Kitchen workflow demo" src="https://github.com/user-attachments/assets/4b7d1bdb-9965-48cd-b76e-4543a3fdc642" />
